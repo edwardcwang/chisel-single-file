@@ -1,7 +1,7 @@
 # chisel-single-file
 Single-file Chisel design demo.
 
-This repo is a demo of a single-file Chisel design. For more complex designs, we recommend using [chisel-template-lite](https://github.com/edwardcwang/chisel-template-lite) or [chisel-template](https://github.com/freechipsproject/chisel-template) as it provides more standardized testing and build infrastructure.
+This repo is a demo of a single-file Chisel design enabled by [Ammonite](https://ammonite.io/). For more complex designs, we recommend using [chisel-template-lite](https://github.com/edwardcwang/chisel-template-lite) or [chisel-template](https://github.com/freechipsproject/chisel-template) as it provides more standardized testing and build infrastructure.
 
 # Requirements
 * JRE. On Debian/Ubuntu this can be installed with:`sudo apt-get install openjdk-8-jre`
