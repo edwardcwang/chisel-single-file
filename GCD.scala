@@ -1,6 +1,14 @@
 #!/usr/bin/env amm
 
-import $ivy.`edu.berkeley.cs::chisel3:3.1.+`, chisel3._
+import $ivy.`edu.berkeley.cs::chisel3:3.4.+`, chisel3._
+
+class GCDIO extends Bundle {
+  val value1        = Input(UInt(16.W))
+  val value2        = Input(UInt(16.W))
+  val loadingValues = Input(Bool())
+  val outputGCD     = Output(UInt(16.W))
+  val outputValid   = Output(Bool())
+}
 
 /**
   * Compute GCD using subtraction method.
@@ -10,13 +18,7 @@ import $ivy.`edu.berkeley.cs::chisel3:3.1.+`, chisel3._
 class GCD extends Module {
   // This is an artefact of ammonite's REPL de-conflicting class names
   override def desiredName = "GCD"
-  val io = IO(new Bundle {
-    val value1        = Input(UInt(16.W))
-    val value2        = Input(UInt(16.W))
-    val loadingValues = Input(Bool())
-    val outputGCD     = Output(UInt(16.W))
-    val outputValid   = Output(Bool())
-  })
+  val io = IO(new GCDIO)
 
   val x  = Reg(UInt())
   val y  = Reg(UInt())
