@@ -1,6 +1,6 @@
 #!/usr/bin/env amm
 
-import $ivy.`edu.berkeley.cs::chisel3:3.4.+`, chisel3._
+import $ivy.`org.chipsalliance::chisel:6.5.+`, chisel3._
 
 class GCDIO extends Bundle {
   val value1        = Input(UInt(16.W))
@@ -36,5 +36,12 @@ class GCD extends Module {
 }
 
 @main
-def main(args: String*) = chisel3.Driver.execute(args.toArray, () => new GCD)
-
+def main(args: String*): Unit = {
+  (new circt.stage.ChiselStage).execute(
+    args.toArray,
+    Seq(
+      chisel3.stage.ChiselGeneratorAnnotation(() => new GCD),
+      circt.stage.FirtoolOption("--disable-all-randomization"),
+    )
+  )
+}

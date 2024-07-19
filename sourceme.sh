@@ -1,3 +1,3 @@
-wget https://github.com/lihaoyi/Ammonite/releases/download/2.4.0/2.12-2.4.0 -O amm
+wget https://github.com/com-lihaoyi/Ammonite/releases/download/3.0.0-M2/2.13-3.0.0-M2 -O amm
 chmod +x amm
 export PATH="$PATH:$PWD"
